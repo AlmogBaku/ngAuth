@@ -1,4 +1,5 @@
-In Development - Not Active!.
+Under active development
 =============================
 
-ngAuth
+Not tested yet.
+---------------
