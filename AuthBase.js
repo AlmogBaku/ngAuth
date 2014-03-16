@@ -1,10 +1,10 @@
 /**
  * GoDisco - Social Nightlife LTD property
- * Authored by  AlmogBaku & Tal Gleichger
- *              almog.baku@gmail.com
- *              http://www.almogbaku.com/
+ * Authored by  Tal Gleichger & Almog Baku
  *              tal@gleichger.com
  *              http://www.gleichger.com/
+ *              almog.baku@gmail.com
+ *              http://www.almogbaku.com/
  *
  * 3/12/2014 16:25
  */
@@ -14,11 +14,6 @@ angular.module('ngAuthBase',[])
             loginPath:      '/login',
             securedPath:    '/'
         };
-        /**
-         * Is Logged in - should be extended
-         */
-        this.isLoggedIn = {};
-
         this.getLoginPath = function() {
             return config.loginPath;
         };
@@ -41,7 +36,6 @@ angular.module('ngAuthBase',[])
         this.$get = ["$rootScope", "$route", "$location",
             function($rootScope, $route, $location) {
                 var AuthBase=this; //Allow access to configuration
-
                 /**
                  * On location change(mostly very first entering)
                  */
@@ -139,5 +133,3 @@ angular.module('ngAuthBase',[])
                 return Auth;
             }];
     }]);
-
-$controller('')

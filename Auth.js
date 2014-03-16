@@ -12,9 +12,13 @@ myApp
 
         angular.extend(AuthBase, function() {
 
-            AuthBase.setLoginPath('/different');
+            // Chaning configuration's login path
+            AuthBase.setLoginPath('/different-login-path');
 
+            // Setting secure path (after logging in)
             AuthBase.setSecuredPath('/homepage');
+
+            // Checking if the user is logged in
             AuthBase.setIsLoggedIn(function(){
                 var status = $facebook.isConnected();
                 if(status==null) $facebook.getLoginStatus();
@@ -24,5 +28,4 @@ myApp
         });
 
         return AuthBase;
-    }])
-;
+    }]);
