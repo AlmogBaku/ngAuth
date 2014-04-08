@@ -32,6 +32,10 @@ angular.module('ngAuthBase',[])
             this.isLoggedIn = fn;
             return this;
         };
+        this.setReady = function(promise) {
+            this.ready = promise;
+            return this;
+        };
 
         this.$get = ["$rootScope", "$route", "$location",
             function($rootScope, $route, $location) {
