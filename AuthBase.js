@@ -32,10 +32,6 @@ angular.module('ngAuthBase',[])
             this.isLoggedIn = fn;
             return this;
         };
-        this.setReady = function(promise) {
-            this.ready = promise;
-            return this;
-        };
 
         this.$get = ["$rootScope", "$route", "$location",
             function($rootScope, $route, $location) {
@@ -69,9 +65,9 @@ angular.module('ngAuthBase',[])
                     var isLoggedIn = AuthBase.isLoggedIn();
 
                     if(next.authenticated && !isLoggedIn) {
-                        $rootScope.goto(AuthBase.getLoginPath());
+                        $location.path(AuthBase.getLoginPath());
                     } else if(next.anonymous && isLoggedIn) {
-                        $rootScope.goto(AuthBase.getSecuredPath());
+                        $location.path(AuthBase.getSecuredPath());
                     }
                 };
 
