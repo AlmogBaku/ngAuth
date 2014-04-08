@@ -9,7 +9,7 @@
  * 3/12/2014 16:25
  */
 angular.module('ngAuthBase',[])
-    .provider('AuthBase', [function() {
+    .provider('AuthBase', function() {
         var config = {
             loginPath:      '/login',
             securedPath:    '/'
@@ -30,6 +30,10 @@ angular.module('ngAuthBase',[])
         };
         this.setIsLoggedIn = function(fn) {
             this.isLoggedIn = fn;
+            return this;
+        };
+        this.setReady = function(promise) {
+            this.ready = promise;
             return this;
         };
 
@@ -65,9 +69,9 @@ angular.module('ngAuthBase',[])
                     var isLoggedIn = AuthBase.isLoggedIn();
 
                     if(next.authenticated && !isLoggedIn) {
-                        $rootScope.goto(AuthBase.getLoginPath());
+                        $location.path(AuthBase.getLoginPath());
                     } else if(next.anonymous && isLoggedIn) {
-                        $rootScope.goto(AuthBase.getSecuredPath());
+                        $location.path(AuthBase.getSecuredPath());
                     }
                 };
 
@@ -130,6 +134,6 @@ angular.module('ngAuthBase',[])
                     return match || $route.routes[null] && inherit($route.routes[null], {params: {}, pathParams:{}});
                 }
 
-                return Auth;
+                return AuthBase;
             }];
-    }]);
+    });
