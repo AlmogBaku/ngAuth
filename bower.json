@@ -1,0 +1,31 @@
+{
+  "name": "ngAuth",
+  "version": "0.0.2",
+  "homepage": "https://github.com/GoDisco/ngAuth",
+  "authors": [
+    "talgleichger <tal@godisco.net>",
+    "almogbaku <almog@godisco.net>"
+  ],
+  "description": "AngularJS Authentication gateway for ngRoute",
+  "main": "AuthBase.js",
+  "keywords": [
+    "ngAuth",
+    "AngularJS",
+    "ngRoute",
+    "Authentication",
+    "Auth",
+    "GoDisco"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.14",
+    "angular-route": "~1.2.14"
+  }
+}
