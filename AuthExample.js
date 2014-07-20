@@ -7,8 +7,8 @@
  * 3/12/2014 16:25
  */
 app
-    .factory('Auth', ['$facebook', 'AuthBase', '$rootScope','$q', 'API', '$session',
-        function($facebook, AuthBase, $rootScope, $q,API,$session) {
+    .factory('Auth', ['$facebook', 'AuthBase', '$rootScope', '$q',
+        function($facebook, AuthBase, $rootScope, $q) {
 
             var Auth = angular.extend(AuthBase,  {});
 
