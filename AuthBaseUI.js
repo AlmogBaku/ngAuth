@@ -32,10 +32,6 @@ angular.module('ngAuthBase',[])
             this.isLoggedIn = fn;
             return this;
         };
-        this.setReady = function(promise) {
-            this.ready = promise;
-            return this;
-        };
 
         this.$get = ["$rootScope", "$state", "$urlRouter", '$location',
             function($rootScope, $state, $urlRouter, $location) {
@@ -45,6 +41,7 @@ angular.module('ngAuthBase',[])
                  * Prevent any load before authentication is ready
                  */
                 $rootScope.$on('$locationChangeStart', function (event) {
+                    //If login data not available, make sure we request for it
                     if(AuthBase.isLoggedIn() == null) {
                         event.preventDefault();
                         return;
@@ -55,8 +52,8 @@ angular.module('ngAuthBase',[])
                 /**
                  * Check the login
                  * Check the user access for permission to the page, if denied redirect
-                 * @param event
-                 * @param next
+                 * @param {event} event
+                 * @param {event} next
                  */
                 AuthBase.loginCheck = function(event, next) {
                     var isLoggedIn = AuthBase.isLoggedIn();
@@ -68,16 +65,25 @@ angular.module('ngAuthBase',[])
                     }
                 };
 
+
+                /**
+                 * Broadcast status change
+                 * @param {boolean|null} status
+                 * @returns {AuthBase}
+                 */
+                AuthBase.statusChanged = function(status) {
+                    $rootScope.$broadcast("Auth.status", status);
+                    return this;
+                };
+
                 /**
                  * On authentication status change reload the current page
                  */
                 $rootScope.$on("Auth.status", function() {
-                    AuthBase.ready.promise.then(function() {
-                        if(!angular.isDefined($state.current.name) || $state.current.name.length == 0)
-                            $urlRouter.sync();
-                        else
-                            $state.go($state.current.name, null, { reload: true });
-                    });
+                    if(!angular.isDefined($state.current.name) || $state.current.name.length == 0)
+                        $urlRouter.sync();
+                    else
+                        $state.go($state.current.name, null, { reload: true });
                 });
 
                 /**
@@ -89,4 +95,5 @@ angular.module('ngAuthBase',[])
 
                 return AuthBase;
             }];
-    });
+    })
+;

@@ -32,10 +32,6 @@ angular.module('ngAuthBase',[])
             this.isLoggedIn = fn;
             return this;
         };
-        this.setReady = function(promise) {
-            this.ready = promise;
-            return this;
-        };
 
         this.$get = ["$rootScope", "$route", "$location",
             function($rootScope, $route, $location) {
@@ -62,8 +58,8 @@ angular.module('ngAuthBase',[])
                 /**
                  * Check the login
                  * Check the user access for permission to the page, if denied redirect
-                 * @param event
-                 * @param next
+                 * @param {event} event
+                 * @param {event} next
                  */
                 AuthBase.loginCheck = function(event, next) {
                     var isLoggedIn = AuthBase.isLoggedIn();
@@ -75,13 +71,22 @@ angular.module('ngAuthBase',[])
                     }
                 };
 
+
+                /**
+                 * Broadcast status change
+                 * @param {boolean|null} status
+                 * @returns {AuthBase}
+                 */
+                AuthBase.statusChanged = function(status) {
+                    $rootScope.$broadcast("Auth.status", status);
+                    return this;
+                };
+
                 /**
                  * On authentication status change reload the current page
                  */
                 $rootScope.$on("Auth.status", function() {
-                    AuthBase.ready.promise.then(function() {
-                        $route.reload();
-                    });
+                    $route.reload();
                 });
 
                 /**
