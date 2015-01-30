@@ -1,13 +1,16 @@
 Angular Authentication layer
 =============================
-This module allows you to add authentication layer to your angular project, and to filter pages for "anonymous" and "authenticated" users.
+This module allows you to add authorization layer to your angular project, and to filter pages for "anonymous" and "authenticated" users.
 
 
 ## Installation ##
 
 ** You can assist the example on `AuthExample.js` of using `ngAuth` with `ng-facebook` module **
 
-
+1. Download using one of the following options:
+   1. npm: `npm install ng-auth`
+   1. bower: `bower install ngAuth`
+   1. git
 1. Add the module to your dependencies and include its scripts
 1. Create your own authentication service by implementing the `AuthBase` abstract:
     ```javascript
