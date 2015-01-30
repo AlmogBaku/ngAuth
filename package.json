@@ -1,0 +1,28 @@
+{
+  "name": "ng-auth",
+  "version": "0.0.6",
+  "description": "Authorization layer over angular",
+  "main": "AuthBase.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://AlmogBaku@github.com/GoDisco/ngAuth.git"
+  },
+  "keywords": [
+    "ngAuth",
+    "ng-auth",
+    "angular",
+    "authentication",
+    "authorization",
+    "auth",
+    "ng-facebook",
+    "ngFacebook"
+  ],
+  "author": "AlmogBaku",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GoDisco/ngAuth/issues"
+  }
+}
