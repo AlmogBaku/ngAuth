@@ -1,5 +1,5 @@
 {
-  "name": "ng-auth",
+  "name": "ngauth",
   "version": "0.0.6",
   "description": "Authorization layer over angular",
   "main": "AuthBase.js",
@@ -12,7 +12,7 @@
   },
   "keywords": [
     "ngAuth",
-    "ng-auth",
+    "ngauth",
     "angular",
     "authentication",
     "authorization",
