@@ -8,7 +8,7 @@ This module allows you to add authorization layer to your angular project, and t
 ** You can assist the example on `AuthExample.js` of using `ngAuth` with `ng-facebook` module **
 
 1. Download using one of the following options:
-   1. npm: `npm install ng-auth`
+   1. npm: `npm install ngauth`
    1. bower: `bower install ngAuth`
    1. git
 1. Add the module to your dependencies and include its scripts
