@@ -1,4 +1,4 @@
-Angular Authentication layer
+Angular Authorization layer
 =============================
 This module allows you to add authorization layer to your angular project, and to filter pages for "anonymous" and "authenticated" users.
 
